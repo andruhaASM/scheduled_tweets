@@ -1,0 +1,27 @@
+<%= form_with model: tweet do |form| %>
+<%= render "shared/form_errors", form: form%>
+<div class="mb-3">
+	<%= form.label :twitter_account_id %>
+	<%= form.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, {class: "form-control"}%>
+	<%= link_to "Conecta a sua conta do Twitter", "auth/twitter"%>
+	
+</div>
+
+<div class="mb-3">
+	<%= form.label :body%>
+	<%= form.text_area :body, class: "form-control"%>
+	
+</div>
+
+<div class="mb-3">
+	<%= form.label :publish_at%>
+	<%= form.datetime_select :publish_at, class: "form-control"%>
+	
+</div>
+
+<%= form.button "Agendar o tweet", class: "btn btn-primary"%>
+<% if form.object.persisted? %>
+<%= link_to "Apagar", form.object, method: :delete, data: {confirm: "Tem certeza que quer apagar?"}, class: "btn btn-outline-danger" %>
+<% end %>
+
+<% end %>

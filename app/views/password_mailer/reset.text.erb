@@ -1,0 +1,7 @@
+Olá, <%= params[:user].email %>
+
+Se você pediu a redefinição da sua senha, por favor clique no link abaixo para resetar a senha
+
+
+<%= password_reset_edit_url(token: @token) %>
+

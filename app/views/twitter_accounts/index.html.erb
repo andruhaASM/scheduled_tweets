@@ -1,0 +1,14 @@
+<h1>Suas contas do Twitter</h1>
+
+<%= link_to "Conectar uma conta no twitter", "/auth/twitter", method: :post, class: "btn btn-primary" %>
+
+<% @twitter_accounts.each do |twitter_account|%>
+	<div>
+		<%= twitter_account.username %>
+	</div>
+	<div>
+		<%= button_to "Desconectar", twitter_account, method: :delete, data: {confirm: "Tem certeza que quer  desconectar a sua conta?"}%>
+	</div>
+<% end %>
+
+<%= @user_data %>

@@ -1,0 +1,7 @@
+<h1>Olá, <%= params[:user].email %></h1>
+
+<p>Se você pediu a redefinição da sua senha, por favor clique no link abaixo para resetar a senha</p>
+
+<p>
+  <%= link_to "Resetar a senha", password_reset_edit_url(token: @token) %>
+</p>
